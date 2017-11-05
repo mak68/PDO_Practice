@@ -1,20 +1,17 @@
 <?php
-	$servername = "sql2.njit.edu";
-	$username = "mak68";
-	$password ="AEZ4mNaJP";
-	$dbname = "mak68";	
-	
-	
+$dsn = 'mysql:dbname=mak68;host=sql2.njit.edu';
+$user = 'mak68';
+$password = 'AEZ4mNaJP';
+
 try {
-	$conn = new PDO ("mysql:host = $servername, dbname=$dbname, $username,
-	$password");
-	 
-	$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	echo "Connected Successfully <br>";
-	}
-	
-catch (PDOException $e) {
-	echo "Connection failed: " . $e-> getMessage();
-	}
+
+    $dbh = new PDO($dsn, $user, $password);
+       $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	echo "Connected successfully";
+} 
+
+	catch (PDOException $e) {
+  	echo 'Connection failed: ' . $e->getMessage();
+	  }
 
 ?>
